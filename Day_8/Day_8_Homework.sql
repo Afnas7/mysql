@@ -10,7 +10,13 @@
 -- title (text)
 -- price (number)
 -- author_id (foreign key referencing authors)
--- Add a new column called published_year (number) to the books table.
--- Delete all rows from the books table without removing the table itself.
--- Remove the BookStoreDB completely from the system.
+ALTER TABLE books
+ADD CONSTRAINT fk_author
+FOREIGN KEY (author_id) REFERENCES authors(author_id);
 
+-- Add a new column called published_year (number) to the books table.
+ALTER TABLE books ADD COLUMN `published_year` INT
+-- Delete all rows from the books table without removing the table itself.
+DELETE FROM books;
+-- Remove the BookStoreDB completely from the system.
+DROP DATABASE bookstoredb;
